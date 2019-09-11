@@ -19,6 +19,14 @@ $router->get('/api_lumem', function () use ($router) {
     return view('index');
 });
 
+$router->get('/google', function () use ($router) {
+    return view('google');
+});
+
+$router->get('googleApi', [
+    'as' => 'googleApi', 'uses' => 'RequestGoogleApiController@getGuzzleRequest'
+]);
+
  $router->group(['prefix'=>'api/v1'], function() use($router){
     $router->get('/products', 'ProductController@index');
     $router->get('/products/search/{term}', 'ProductController@search');
@@ -26,4 +34,5 @@ $router->get('/api_lumem', function () use ($router) {
     $router->get('/product/{id}', 'ProductController@show');
     $router->put('/product/{id}', 'ProductController@update');
     $router->delete('/product/{id}', 'ProductController@destroy');
+    
 });
