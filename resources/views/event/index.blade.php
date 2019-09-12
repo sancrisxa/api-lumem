@@ -6,6 +6,13 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link rel="stylesheet" href="../css/bootstrap.min.css">
         <title>Autocomplete</title>
+        <style>
+        
+        #result ul li {
+            list-style-type: none;
+            text-align: left;
+        }
+        </style>
     </head>
 	<body>
         <div class="jumbotron text-center">
@@ -16,9 +23,8 @@
                     <input type="text" class="form-control" name="campo-busca" id="campo-busca" placeholder="Buscar">
                 </div>
             </form>
-            <div class="card">
-                <div class="card-body" id="result"></div>
-            </div>
+    
+            <div id="result" class="container"></div>
         </div>
 		
         <script type="text/javascript" src="../js/jquery.min.js"></script>
