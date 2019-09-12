@@ -11,28 +11,27 @@
 |
 */
 
-$router->get('/', function () use ($router) {
-    return $router->app->version();
+$router->get('/event/search', function () use ($router) {
+    return view('event.index');
 });
 
-$router->get('/api_lumem', function () use ($router) {
-    return view('index');
+$router->get('/event', function () use ($router) {
+    return view('event.event');
 });
 
-$router->get('/google', function () use ($router) {
-    return view('google');
-});
-
-$router->get('googleApi', [
-    'as' => 'googleApi', 'uses' => 'RequestGoogleApiController@getGuzzleRequest'
+$router->get('/', [
+    'as' => 'index', 'uses' => 'IndexController@index'
 ]);
 
  $router->group(['prefix'=>'api/v1'], function() use($router){
-    $router->get('/products', 'ProductController@index');
-    $router->get('/products/search/{term}', 'ProductController@search');
-    $router->post('/product', 'ProductController@create');
-    $router->get('/product/{id}', 'ProductController@show');
-    $router->put('/product/{id}', 'ProductController@update');
-    $router->delete('/product/{id}', 'ProductController@destroy');
+    $router->get('/events', 'EventController@index');
+    $router->get('/event/{id}', 'ProductController@show');
+    $router->put('/event/{id}', 'ProductController@update');
+    $router->delete('/event/{id}', 'ProductController@destroy');
+    $router->post('/event', [
+        'as' => 'event', 'uses' => 'eventController@create'
+    ]);
+    $router->get('/events/search/{term}', 'EventController@search');
+
     
 });
