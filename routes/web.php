@@ -25,13 +25,13 @@ $router->get('/', [
 
  $router->group(['prefix'=>'api/v1'], function() use($router){
     $router->get('/events', 'EventController@index');
+    $router->post('/events', [
+        'as' => 'event', 'uses' => 'eventController@create'
+    ]);
     $router->get('/event/{id}', 'ProductController@show');
     $router->put('/event/{id}', 'ProductController@update');
     $router->delete('/event/{id}', 'ProductController@destroy');
-    $router->post('/event', [
-        'as' => 'event', 'uses' => 'eventController@create'
-    ]);
+
     $router->get('/events/search/{term}', 'EventController@search');
 
-    
 });

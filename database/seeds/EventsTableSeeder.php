@@ -1,10 +1,8 @@
 <?php
-
-use App\Models\Product;
-
+use App\Models\Event;
 use Illuminate\Database\Seeder;
 
-class ProductsTableSeeder extends Seeder
+class EventsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,6 +11,7 @@ class ProductsTableSeeder extends Seeder
      */
     public function run()
     {
-        $products = factory(Product::class, 10)->create();
+        //
+        $events = factory(Event::class, 10)->create();
     }
 }

@@ -10,19 +10,11 @@
 | database. Just tell the factory how a default model should look.
 |
 */
+use Illuminate\Support\Str;
 
-$factory->define(App\User::class, function (Faker\Generator $faker) {
+$factory->define(App\Models\Event::class, function (Faker\Generator $faker) {
     return [
-        'name' => $faker->name,
-        'email' => $faker->email,
-    ];
-});
-
-
-$factory->define(App\Models\Product::class, function (Faker\Generator $faker) {
-    return [
-        'name' => $faker->name,
-        'price' => rand(0, 300),
-        'description'=>$faker->text,
+        'event' => Str::random(5),
+        'added_on' => $faker->date,
     ];
 });

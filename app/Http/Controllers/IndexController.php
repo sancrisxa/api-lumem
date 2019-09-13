@@ -20,7 +20,7 @@ class IndexController extends Controller
     }
 
     public function cmp($a, $b) {
-        return $a->timestamp > $b->timestamp;
+        return $a->transaction_id > $b->transaction_id;
     }
 
     public function index()
@@ -32,7 +32,7 @@ class IndexController extends Controller
 
         usort($results, array($this,'cmp'));
         return view('index')->with('results', $results);
-      
+
     }
 
 }
