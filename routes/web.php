@@ -28,9 +28,9 @@ $router->get('/', [
     $router->post('/events', [
         'as' => 'event', 'uses' => 'eventController@create'
     ]);
-    $router->get('/event/{id}', 'ProductController@show');
-    $router->put('/event/{id}', 'ProductController@update');
-    $router->delete('/event/{id}', 'ProductController@destroy');
+    $router->get('/event/{id}', 'EventController@show');
+    $router->put('/event/{id}', 'EventController@update');
+    $router->delete('/event/{id}', 'EventController@destroy');
 
     $router->get('/events/search/{term}', 'EventController@search');
 
